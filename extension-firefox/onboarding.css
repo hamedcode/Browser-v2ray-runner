@@ -1,0 +1,160 @@
+/* Full-page layout for the onboarding tab. Reuses the color variables and
+   base component styles (.btn, .dot, #statusCard, etc.) defined in
+   popup.css — this file only overrides the width/spacing that popup.css
+   sets for the small 360px popup window. */
+
+body.onboard-body {
+  width: auto;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.onboard-wrap {
+  width: 100%;
+  max-width: 640px;
+  padding: 32px 24px 48px;
+}
+
+.onboard-wrap header { margin-bottom: 18px; }
+.onboard-wrap h1 { font-size: 18px; }
+
+.onboard-wrap h2 {
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+
+.onboard-intro {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.onboard-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.onboard-step h3 {
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.onboard-step p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.onboard-step p:last-child,
+.onboard-step p:only-child { margin-bottom: 0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn-ghost {
+  background: var(--card-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.onboard-status-card {
+  margin: 20px 0;
+}
+
+.onboard-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.wizard-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.wizard-dot {
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.wizard-dot.active { background: var(--accent); }
+.wizard-dot.done { background: var(--accent); opacity: 0.5; }
+
+.wizard-step[hidden] { display: none; }
+
+.lang-picker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+
+.lang-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.lang-options {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  background: var(--card);
+}
+
+.lang-option:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--card-2);
+}
+
+.lang-option input { accent-color: var(--accent); }
+
+.dot.spin {
+  animation: onboard-spin 1s linear infinite;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  background: transparent;
+}
+
+@keyframes onboard-spin {
+  to { transform: rotate(360deg); }
+}

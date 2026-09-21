@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Browser v2ray Runner</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <h1 id="appTitle">Browser v2ray Runner</h1>
+    </div>
+    <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">⚙</button>
+  </header>
+
+  <section id="statusCard">
+    <div class="status-row">
+      <span id="statusDot" class="dot stopped"></span>
+      <span id="statusLine">Disconnected</span>
+    </div>
+    <div class="status-metrics">
+      <div class="metric">
+        <span class="metric-label" id="dataUsageLabel">Data used this session</span>
+        <span class="metric-value" id="trafficValue">↑ 0 B · ↓ 0 B</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label" id="exitIPLabel">Exit IP</span>
+        <span class="metric-value">
+          <span id="ipValue">—</span>
+          <button id="ipCheckBtn" class="mini-btn">Check</button>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <nav id="tabs">
+    <button class="tab active" data-tab="configs" id="tabConfigsBtn">Configs</button>
+    <button class="tab" data-tab="subs" id="tabSubsBtn">Subs</button>
+    <button class="tab" data-tab="settings" id="tabSettingsBtn">Settings</button>
+  </nav>
+
+  <section id="panel-configs" class="panel">
+    <div class="list-toolbar">
+      <select id="sortSelect" class="tool-select">
+        <option value="added">Sort: Recently added</option>
+        <option value="ping">Sort: Ping</option>
+        <option value="name">Sort: Name</option>
+      </select>
+      <button id="pingAllBtn" class="tool-btn">Test all (real delay)</button>
+      <button id="removeUnhealthyBtn" class="tool-btn subtle">Remove unhealthy</button>
+      <button id="removeAllBtn" class="tool-btn subtle danger">Remove all</button>
+    </div>
+
+    <ul id="configList"></ul>
+    <p id="emptyLine" class="muted" hidden>No configs yet — add one below.</p>
+
+    <div id="addBlock">
+      <span id="addLabel" class="block-label">Add configs</span>
+      <form id="addForm" class="col">
+        <textarea id="addInput" rows="4" placeholder="Paste one link, several links, or a subscription URL"></textarea>
+        <button type="submit" id="addBtn">Add</button>
+      </form>
+    </div>
+
+    <p id="importResultLine" class="muted"></p>
+  </section>
+
+  <section id="panel-subs" class="panel" hidden>
+    <ul id="subList"></ul>
+    <p id="emptySubLine" class="muted" hidden>No subscriptions yet — add one below.</p>
+
+    <div id="addSubBlock">
+      <form id="addSubForm" class="col">
+        <input id="subNameInput" type="text" placeholder="Name (optional)" />
+        <div class="row">
+          <input id="subUrlInput" type="text" placeholder="https://your-subscription-url" />
+          <button type="submit" id="addSubBtn">Add subscription</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="panel-settings" class="panel" hidden>
+    <div class="settings-row">
+      <span id="languageLabel">Language</span>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en" id="langEnBtn">English</button>
+        <button class="lang-btn" data-lang="fa" id="langFaBtn">فارسی</button>
+      </div>
+    </div>
+    <div class="settings-row">
+      <span id="accentColorLabel">Accent color</span>
+      <div class="color-swatches" id="colorSwatches"></div>
+    </div>
+  </section>
+
+  <p id="errorLine" class="error"></p>
+
+  <script src="common/browser-polyfill.js"></script>
+  <script src="common/constants.js"></script>
+  <script src="common/parser.js"></script>
+  <script src="common/i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

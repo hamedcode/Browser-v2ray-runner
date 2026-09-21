@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Browser v2ray Runner",
+  "version": "0.9.0",
+  "description": "Run vless, vmess, trojan, shadowsocks, and socks5 proxy configs entirely inside the browser — no VPN, no system-wide changes. Supports subscription links, parallel real-delay testing, live traffic stats, and exit-IP lookup.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "proxy",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "minimum_chrome_version": "116",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj4clEcsZUvcs0mpHqiTE8S7LjrBF4/drH0OmxmWIc4NDu64HUN54wZvJ0d0G6VtoFSk7rAX7dnqcMYNcqlvkjGXulL+PNsQr5xkjmEAvxXOfiSgrwHPQI3U/rWjNDDHTwUG3pVnUQyG4YkbxbhJoNcivyo0GUxio8pgDmCNZXc3ideogxjsMKDsrkYSV1LdlvXV4DAIQdXhdvJM1Mj26gIYPi3cCzZbN56Uo+U59uG6ZFNYzaybWy+QN3BfR+ledaW4qv2CuKZMSPOXfilstRYevfG04rH9qg9hRCI1xXWBWti7mCSOLM1cJapaw6YRd3htJf6GIJttGutt9eu6A3wIDAQAB"
+}

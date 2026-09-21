@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Browser v2ray Runner — Setup</title>
+  <link rel="stylesheet" href="popup.css" />
+  <link rel="stylesheet" href="onboarding.css" />
+</head>
+<body class="onboard-body">
+  <div class="onboard-wrap">
+    <header>
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <h1 id="appTitle">Browser v2ray Runner</h1>
+      </div>
+    </header>
+
+    <div class="wizard-dots">
+      <span class="wizard-dot" data-step="welcome"></span>
+      <span class="wizard-dot" data-step="setup"></span>
+      <span class="wizard-dot" data-step="done"></span>
+    </div>
+
+    <!-- Step 1: welcome + language -->
+    <section id="stepWelcome" class="wizard-step">
+      <h2 id="onboardWelcomeTitle"></h2>
+      <p id="onboardWelcomeBody" class="onboard-intro"></p>
+
+      <div class="lang-picker">
+        <span id="onboardLangLabel" class="lang-label"></span>
+        <div class="lang-options">
+          <label class="lang-option">
+            <input type="radio" name="lang" value="en" />
+            <span>English</span>
+          </label>
+          <label class="lang-option">
+            <input type="radio" name="lang" value="fa" />
+            <span>فارسی</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="onboard-actions">
+        <button id="welcomeNextBtn" class="btn btn-primary"></button>
+        <button id="welcomeSkipBtn" class="btn btn-ghost"></button>
+      </div>
+    </section>
+
+    <!-- Step 2: checking / instructions -->
+    <section id="stepSetup" class="wizard-step" hidden>
+      <h2 id="onboardTitle"></h2>
+      <p id="onboardIntro" class="onboard-intro"></p>
+
+      <section id="checkingCard" class="onboard-status-card" hidden>
+        <div class="status-row">
+          <span class="dot stopped spin"></span>
+          <span id="onboardChecking2"></span>
+        </div>
+      </section>
+
+      <div id="setupSteps" hidden>
+        <section class="onboard-step">
+          <h3 id="onboardStep1Title"></h3>
+          <p id="onboardStep1Body"></p>
+          <a id="downloadBtn" class="btn btn-primary" download>
+            <span id="onboardDownloadBtn"></span>
+          </a>
+        </section>
+
+        <section class="onboard-step">
+          <h3 id="onboardStep2Title"></h3>
+          <p id="onboardStep2Body"></p>
+        </section>
+
+        <section class="onboard-step">
+          <h3 id="onboardStep3Title"></h3>
+          <p id="onboardStep3Body"></p>
+        </section>
+
+        <section id="statusCard" class="onboard-status-card">
+          <div class="status-row">
+            <span id="statusDot" class="dot stopped"></span>
+            <span id="statusLine"></span>
+          </div>
+        </section>
+      </div>
+
+      <div id="alreadyDoneCard" class="onboard-status-card" hidden>
+        <div class="status-row">
+          <span class="dot running"></span>
+          <span id="alreadyDoneLine"></span>
+        </div>
+      </div>
+
+      <div class="onboard-actions">
+        <button id="setupBackBtn" class="btn btn-ghost"></button>
+        <button id="setupNextBtn" class="btn btn-primary" disabled></button>
+      </div>
+    </section>
+
+    <!-- Step 3: done -->
+    <section id="stepDone" class="wizard-step" hidden>
+      <h2 id="onboardStatusOK"></h2>
+      <div class="onboard-actions">
+        <button id="openPopupBtn" class="btn btn-primary"></button>
+      </div>
+    </section>
+  </div>
+
+  <script src="common/browser-polyfill.js"></script>
+  <script src="common/i18n.js"></script>
+  <script src="onboarding.js"></script>
+</body>
+</html>
