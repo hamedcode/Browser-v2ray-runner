@@ -79,21 +79,33 @@ $ErrorActionPreference = 'Stop'
 
 # --- fill these in before shipping ---------------------------------------
 # GitHub repo that hosts a Release with a "v2ray-ext-host.exe" asset
-# (the native host binary built from native-host/main.go). The repo must
-# have at least one PUBLISHED release (not a draft, not just files sitting
-# in the repo) with that file attached to it.
-$HostBinaryRepo = 'hamedcode/Browser-v2ray-runner'
+# (the native host binary built from native-host/main.go).
+$HostBinaryRepo = hamedcode/Browser-v2ray-runner'
+# The SPECIFIC release tag that holds v2ray-ext-host.exe (e.g. 'host-v1').
+# Deliberately NOT "latest": if you ever publish other releases in this repo
+# for unrelated reasons (e.g. a full source-code drop), the repo-wide
+# "latest release" would silently move to that new release and this
+# installer would stop finding the binary. Pinning to one tag you control
+# means it only changes when YOU update it, on purpose.
+$HostBinaryTag = '1.0.0'
 # ---------------------------------------------------------------------------
 
-function Get-LatestReleaseAsset($repo, $namePattern, $friendlyName) {
+function Get-ReleaseAsset($repo, $tag, $namePattern, $friendlyName) {
+    if ($tag) {
+        $uri = "https://api.github.com/repos/$repo/releases/tags/$tag"
+        $whichRelease = "release tag '$tag'"
+    } else {
+        $uri = "https://api.github.com/repos/$repo/releases/latest"
+        $whichRelease = 'latest release'
+    }
     try {
-        $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest" -Headers @{ 'User-Agent' = 'v2ray-ext-installer' }
+        $release = Invoke-RestMethod -Uri $uri -Headers @{ 'User-Agent' = 'v2ray-ext-installer' }
     } catch {
-        throw "Could not find a release for '$repo' on GitHub. Double-check that repo exists, is public, and has at least one published Release (Releases tab, not just files in the repo) with '$friendlyName' attached to it."
+        throw "Could not find the $whichRelease for '$repo' on GitHub. Double-check the repo exists, is public, and has that published release (Releases tab, not just files in the repo) with '$friendlyName' attached to it."
     }
     $asset = $release.assets | Where-Object { $_.name -match $namePattern } | Select-Object -First 1
     if (-not $asset) {
-        throw "The latest release of '$repo' doesn't have a file matching '$friendlyName' attached to it."
+        throw "The $whichRelease of '$repo' doesn't have a file matching '$friendlyName' attached to it."
     }
     [PSCustomObject]@{ Version = $release.tag_name; Asset = $asset }
 }
@@ -115,12 +127,12 @@ try {
 
     $hostDest = Join-Path $installDir 'v2ray-ext-host.exe'
     $hostVersionFile = Join-Path $installDir 'v2ray-ext-host.version'
-    $hostInfo = Get-LatestReleaseAsset $HostBinaryRepo 'v2ray-ext-host\.exe$' 'v2ray-ext-host.exe'
+    $hostInfo = Get-ReleaseAsset $HostBinaryRepo $HostBinaryTag 'v2ray-ext-host\.exe$' 'v2ray-ext-host.exe'
     $hostCurrent = (-not $Force) -and (Test-Path $hostDest) -and (Test-Path $hostVersionFile) -and ((Get-Content $hostVersionFile -Raw).Trim() -eq $hostInfo.Version)
 
     $singboxDest = Join-Path $installDir 'sing-box.exe'
     $singboxVersionFile = Join-Path $installDir 'sing-box.version'
-    $singboxInfo = Get-LatestReleaseAsset 'SagerNet/sing-box' 'windows-amd64\.zip$' 'the Windows build of sing-box'
+    $singboxInfo = Get-ReleaseAsset 'SagerNet/sing-box' $null 'windows-amd64\.zip$' 'the Windows build of sing-box'
     $singboxCurrent = (-not $Force) -and (Test-Path $singboxDest) -and (Test-Path $singboxVersionFile) -and ((Get-Content $singboxVersionFile -Raw).Trim() -eq $singboxInfo.Version)
 
     $toDownload = @()
