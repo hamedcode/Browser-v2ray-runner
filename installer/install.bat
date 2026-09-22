@@ -23,10 +23,14 @@ echo.
 
 set "PS1FILE=%TEMP%\v2ray-ext-setup-%RANDOM%.ps1"
 
-set "MARKER_A=__PS1_BOUND"
-set "MARKER_B=ARY__"
-for /f "delims=:" %%A in ('findstr /n /c:"%MARKER_A%%MARKER_B%" "%~f0"') do set "MARKERLINE=%%A"
-more +%MARKERLINE% "%~f0" > "%PS1FILE%"
+powershell -NoProfile -Command "$m = '__PS1_BOUND' + 'ARY__'; $raw = Get-Content -Raw -LiteralPath '%~f0'; $idx = $raw.IndexOf($m); if ($idx -lt 0) { exit 9 }; Set-Content -LiteralPath '%PS1FILE%' -Value $raw.Substring($idx + $m.Length) -Encoding UTF8 -NoNewline"
+if errorlevel 1 (
+    echo   Could not read the setup script out of this file. Please
+    echo   re-download install.bat and try again.
+    echo.
+    pause
+    exit /b 1
+)
 
 powershell -NoProfile -ExecutionPolicy Bypass -File "%PS1FILE%" %*
 set EXITCODE=%ERRORLEVEL%
@@ -66,9 +70,9 @@ endlocal & exit /b %FINALCODE%
 :: __PS1_BOUNDARY__
 <#
   Everything below this line is PowerShell, extracted from this very .bat
-  file at runtime (see the "more +%MARKERLINE%" line above) and run as a
-  temp .ps1. cmd.exe never parses this part directly: execution above
-  always ends at "exit /b" before reaching here.
+  file at runtime (see the "powershell -Command ... Get-Content -Raw ..."
+  line above) and run as a temp .ps1. cmd.exe never parses this part
+  directly: execution above always ends at "exit /b" before reaching here.
 #>
 
 param(
@@ -80,14 +84,14 @@ $ErrorActionPreference = 'Stop'
 # --- fill these in before shipping ---------------------------------------
 # GitHub repo that hosts a Release with a "v2ray-ext-host.exe" asset
 # (the native host binary built from native-host/main.go).
-$HostBinaryRepo = hamedcode/Browser-v2ray-runner'
+$HostBinaryRepo = 'REPLACE_ME/REPLACE_ME'
 # The SPECIFIC release tag that holds v2ray-ext-host.exe (e.g. 'host-v1').
 # Deliberately NOT "latest": if you ever publish other releases in this repo
 # for unrelated reasons (e.g. a full source-code drop), the repo-wide
 # "latest release" would silently move to that new release and this
 # installer would stop finding the binary. Pinning to one tag you control
 # means it only changes when YOU update it, on purpose.
-$HostBinaryTag = '1.0.0'
+$HostBinaryTag = 'REPLACE_ME'
 # ---------------------------------------------------------------------------
 
 function Get-ReleaseAsset($repo, $tag, $namePattern, $friendlyName) {
