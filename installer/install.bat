@@ -82,7 +82,7 @@ $ErrorActionPreference = 'Stop'
 # (the native host binary built from native-host/main.go). The repo must
 # have at least one PUBLISHED release (not a draft, not just files sitting
 # in the repo) with that file attached to it.
-$HostBinaryRepo = 'https://github.com/hamedcode/Browser-v2ray-runner/releases/download/1.0.0/v2ray-ext-host.exe'
+$HostBinaryRepo = 'hamedcode/Browser-v2ray-runner'
 # ---------------------------------------------------------------------------
 
 function Get-LatestReleaseAsset($repo, $namePattern, $friendlyName) {
