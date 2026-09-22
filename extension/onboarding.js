@@ -9,7 +9,7 @@
 // only reaches out to GitHub at runtime for the two binaries (the native
 // host and sing-box), after showing their names/sizes and asking to
 // confirm — so nothing else needs to be hosted alongside it.
-const INSTALLER_DOWNLOAD_URL = 'https://raw.githubusercontent.com/REPLACE_ME/REPLACE_ME/main/installer/install.bat';
+const INSTALLER_DOWNLOAD_URL = 'https://raw.githubusercontent.com/hamedcode/Browser-v2ray-runner/main/installer/install.bat';
 
 const el = (id) => document.getElementById(id);
 
