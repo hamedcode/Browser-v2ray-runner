@@ -1,7 +1,6 @@
 @echo off
 setlocal EnableExtensions
 title Browser v2ray Runner - Setup
-chcp 65001 >nul
 color 0B
 cls
 
@@ -64,7 +63,7 @@ $ErrorActionPreference = 'Stop'
 # --- fill these in before shipping ---------------------------------------
 # GitHub repo that hosts a Release with a "v2ray-ext-host.exe" asset
 # (the native host binary built from native-host/main.go).
-$HostBinaryRepo = 'hamedcode/Browser-v2ray-runner'
+$HostBinaryRepo = 'REPLACE_ME/REPLACE_ME'
 # ---------------------------------------------------------------------------
 
 $installDir = Join-Path $env:LOCALAPPDATA 'V2rayExtHost'
@@ -101,7 +100,7 @@ if (-not $hostCurrent) { $toDownload += [PSCustomObject]@{ Label = 'Local helper
 if (-not $singboxCurrent) { $toDownload += [PSCustomObject]@{ Label = 'sing-box engine'; Name = $singboxInfo.Asset.name; SizeMB = [Math]::Round($singboxInfo.Asset.size / 1MB, 1) } }
 
 if ($toDownload.Count -eq 0) {
-    Write-Host 'Everything is already up to date — nothing to download.' -ForegroundColor Green
+    Write-Host 'Everything is already up to date - nothing to download.' -ForegroundColor Green
 } else {
     Write-Host ''
     Write-Host 'About to download:' -ForegroundColor Yellow
@@ -111,7 +110,7 @@ if ($toDownload.Count -eq 0) {
     $confirm = Read-Host 'Continue with download? (Y/N)'
     if ($confirm -notmatch '^[Yy]') {
         Write-Host ''
-        Write-Host 'Setup cancelled — nothing else was changed.' -ForegroundColor Yellow
+        Write-Host 'Setup cancelled - nothing else was changed.' -ForegroundColor Yellow
         exit 2
     }
 
@@ -140,7 +139,7 @@ if ($toDownload.Count -eq 0) {
     }
 }
 
-# 2. Native messaging manifests — embedded here as text, not separate
+# 2. Native messaging manifests - embedded here as text, not separate
 #    files, since this installer is meant to be the only file you need.
 $hostExePath = $hostDest.Replace('\', '\\')
 
