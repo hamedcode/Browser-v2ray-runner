@@ -64,7 +64,7 @@ $ErrorActionPreference = 'Stop'
 # --- fill these in before shipping ---------------------------------------
 # GitHub repo that hosts a Release with a "v2ray-ext-host.exe" asset
 # (the native host binary built from native-host/main.go).
-$HostBinaryRepo = 'REPLACE_ME/REPLACE_ME'
+$HostBinaryRepo = 'hamedcode/Browser-v2ray-runner'
 # ---------------------------------------------------------------------------
 
 $installDir = Join-Path $env:LOCALAPPDATA 'V2rayExtHost'
