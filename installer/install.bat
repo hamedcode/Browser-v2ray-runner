@@ -84,14 +84,14 @@ $ErrorActionPreference = 'Stop'
 # --- fill these in before shipping ---------------------------------------
 # GitHub repo that hosts a Release with a "v2ray-ext-host.exe" asset
 # (the native host binary built from native-host/main.go).
-$HostBinaryRepo = 'REPLACE_ME/REPLACE_ME'
+$HostBinaryRepo = 'hamedcode/Browser-v2ray-runner'
 # The SPECIFIC release tag that holds v2ray-ext-host.exe (e.g. 'host-v1').
 # Deliberately NOT "latest": if you ever publish other releases in this repo
 # for unrelated reasons (e.g. a full source-code drop), the repo-wide
 # "latest release" would silently move to that new release and this
 # installer would stop finding the binary. Pinning to one tag you control
 # means it only changes when YOU update it, on purpose.
-$HostBinaryTag = 'REPLACE_ME'
+$HostBinaryTag = '1.0.0'
 # ---------------------------------------------------------------------------
 
 function Get-ReleaseAsset($repo, $tag, $namePattern, $friendlyName) {
