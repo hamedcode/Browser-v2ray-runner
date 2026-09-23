@@ -16,9 +16,9 @@
 
 ---
 
-🚦 Run proxy configs (VLESS, VMess, Trojan, Shadowsocks, SOCKS5) inside your browser only — no heavy background app, no system-wide settings changed. Turn the extension off and everything goes right back to normal.
+💠 Run proxy configs (VLESS, VMess, Trojan, Shadowsocks, SOCKS5) inside your browser only — no heavy background app, no system-wide settings changed. Turn the extension off and everything goes right back to normal.
 
-## 🧩 What is this?
+## ⚡ What is this?
 
 A browser extension (Chrome, Edge, Firefox — on Windows) that takes your proxy links and routes **only that browser's traffic** through them. Nothing else on your computer (other apps, other browsers) is affected.
 
@@ -64,7 +64,7 @@ The first time you install the extension, a new tab opens automatically and walk
 
 > ⚠️ **If Windows shows a SmartScreen warning:** click "More info" then "Run anyway". This warning just means the file isn't digitally signed — not that something is wrong. You can open the file itself and read exactly what it does.
 
-## 🎮 How to use it
+## 🌌 How to use it
 
 1. Click the extension icon in your browser's toolbar
 2. Paste a config link (`vless://...`, `trojan://...`, etc.) or a subscription link into the box and click "Add" — it figures out which kind it is automatically
