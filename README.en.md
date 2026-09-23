@@ -10,7 +10,7 @@
 ![Firefox](https://img.shields.io/badge/Firefox-FF7139?logo=firefoxbrowser&logoColor=white)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-6f42c1)
 
-🇮🇷 [نسخه‌ی فارسی](README.md) · [⬇️ Download from Releases](../../releases)
+<img src="https://flagcdn.com/20x15/ir.png" width="20" height="15" alt=""> [نسخه‌ی فارسی](README.md) · [⬇️ Download from Releases](../../releases)
 
 </div>
 

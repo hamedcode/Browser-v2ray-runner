@@ -10,7 +10,7 @@
 ![Firefox](https://img.shields.io/badge/Firefox-FF7139?logo=firefoxbrowser&logoColor=white)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-6f42c1)
 
-🇬🇧 [English version](README.en.md) · [⬇️ دانلود از Releases](../../releases)
+<img src="https://flagcdn.com/20x15/gb.png" width="20" height="15" alt=""> [English version](README.en.md) · [⬇️ دانلود از Releases](../../releases)
 
 </div>
 
@@ -39,14 +39,14 @@
 
 **🦊 فایرفاکس:**
 اگه اکستنشن روی Firefox Add-ons منتشر شده باشه، از همون‌جا نصب کنید (ساده‌ترین راه). در غیر این صورت:
-1. `browser-v2ray-runner-firefox.zip` رو اکسترکت کنید
+1. فایل `browser-v2ray-runner-firefox.zip` رو اکسترکت کنید
 2. تو فایرفاکس برید به `about:debugging#/runtime/this-firefox`
 3. روی «Load Temporary Add-on» بزنید و از داخل پوشه‌ی اکسترکت‌شده، فایل `manifest.json` رو انتخاب کنید
 
 > ⚠️ این روش «موقتیه» — هر بار که فایرفاکس رو ببندید، باید دوباره همین کار رو انجام بدید. برای نصب دائمی، اکستنشن باید توسط موزیلا امضا بشه.
 
 **🌐 کروم / اج:**
-1. `browser-v2ray-runner-chrome-edge.zip` رو اکسترکت کنید
+1. فایل `browser-v2ray-runner-chrome-edge.zip` رو اکسترکت کنید
 2. برید به `chrome://extensions` (یا `edge://extensions`)
 3. «حالت توسعه‌دهنده» (Developer mode) رو از گوشه‌ی بالا-راست روشن کنید
 4. روی «Load unpacked» بزنید و همون پوشه‌ی اکسترکت‌شده رو انتخاب کنید
