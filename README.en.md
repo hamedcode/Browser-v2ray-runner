@@ -16,9 +16,9 @@
 
 ---
 
-💠 Run proxy configs (VLESS, VMess, Trojan, Shadowsocks, SOCKS5) inside your browser only — no heavy background app, no system-wide settings changed. Turn the extension off and everything goes right back to normal.
+⚡ Run proxy configs (VLESS, VMess, Trojan, Shadowsocks, SOCKS5) inside your browser only — no heavy background app, no system-wide settings changed. Turn the extension off and everything goes right back to normal.
 
-## ⚡ What is this?
+## 💠 What is this?
 
 A browser extension (Chrome, Edge, Firefox — on Windows) that takes your proxy links and routes **only that browser's traffic** through them. Nothing else on your computer (other apps, other browsers) is affected.
 
