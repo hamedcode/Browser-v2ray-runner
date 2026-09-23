@@ -28,7 +28,7 @@ Setup has two parts: ⬇️ installing the extension, and 🔧 a one-time setup 
 
 ### Step 1 — Download and install the extension
 
-Go to this repository's **[Releases](../../releases)** page. Look for the newest release starting with `ext-` (e.g. `ext-1.1.0`) — it has two zip files attached:
+Go to this repository's **[Releases](../../releases)** page. Look for the newest release — it has two zip files attached:
 
 | File | For |
 |---|---|
@@ -62,7 +62,7 @@ The first time you install the extension, a new tab opens automatically and walk
 
 > 🔒 **This installer only touches your own Windows user account** — no admin rights needed, and nothing changes outside one folder (`%LOCALAPPDATA%\V2rayExtHost`).
 
-> ⚠️ **If Windows shows a SmartScreen warning:** click "More info" then "Run anyway". This warning just means the file isn't digitally signed (which costs money to set up) — not that something is wrong. You can open the file itself and read exactly what it does.
+> ⚠️ **If Windows shows a SmartScreen warning:** click "More info" then "Run anyway". This warning just means the file isn't digitally signed — not that something is wrong. You can open the file itself and read exactly what it does.
 
 ## 🎮 How to use it
 
