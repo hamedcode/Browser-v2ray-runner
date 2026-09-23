@@ -10,7 +10,7 @@
 ![Firefox](https://img.shields.io/badge/Firefox-FF7139?logo=firefoxbrowser&logoColor=white)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-6f42c1)
 
-<img src="https://flagcdn.com/20x15/gb.png" width="20" height="15" alt=""> [English version](README.en.md) · [⬇️ دانلود از Releases](../../releases)
+<img src="https://flagcdn.com/20x15/gb.png" width="20" height="15" alt=""> [English version](README.en.md) · [⬇️  Releases دانلود از](../../releases)
 
 </div>
 
@@ -28,7 +28,7 @@
 
 ### مرحله ۱ — دانلود و نصب اکستنشن
 
-اول برید صفحه‌ی **[Releases](../../releases)** این ریپازیتوری. دنبال جدیدترین ریلیزی بگردید که با `ext-` شروع می‌شه (مثلاً `ext-1.1.0`) — دو تا فایل zip پیوستش هست:
+اول برید صفحه‌ی **[Releases](../../releases)** این ریپازیتوری. دنبال جدیدترین ریلیزی بگردید — دو تا فایل zip پیوستش هست:
 
 | فایل | برای |
 |---|---|
@@ -62,7 +62,7 @@
 
 > 🔒 **این نصب‌کننده فقط داخل حساب کاربری ویندوز شما کار می‌کنه** — نیازی به دسترسی ادمین نداره و هیچ چیزی رو خارج از همون یه پوشه (`%LOCALAPPDATA%\V2rayExtHost`) تغییر نمی‌ده.
 
-> ⚠️ **اگه ویندوز هشدار SmartScreen داد:** روی «More info» بعد «Run anyway» بزنید. این هشدار به‌خاطر اینه که فایل امضای دیجیتال (که هزینه داره) نداره، نه به این معنی که مشکلی داره. تو خودِ فایل می‌تونید دقیقاً ببینید چیکار می‌کنه.
+> ⚠️ **اگه ویندوز هشدار SmartScreen داد:** روی «More info» بعد «Run anyway» بزنید. این هشدار به‌خاطر اینه که فایل امضای دیجیتال نداره، نه به این معنی که مشکلی داره. تو خودِ فایل می‌تونید دقیقاً ببینید چیکار می‌کنه.
 
 ## 🎮 نحوه‌ی استفاده
 
