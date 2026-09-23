@@ -1,0 +1,65 @@
+name: Release extension
+
+# Two ways to trigger this:
+#   1. Push a tag like "ext-1.1.0"  ->  runs automatically
+#   2. Actions tab -> "Release extension" -> "Run workflow" -> type a tag
+#
+# IMPORTANT: use a tag prefix here that's clearly different from the tag
+# you use for the native host binary release (install.bat pins to that one
+# specifically, e.g. "1.0.0" - see DEVELOPMENT.md). "ext-*" keeps the two
+# completely separate so this workflow can never accidentally overwrite or
+# shadow the host-binary release.
+
+on:
+  push:
+    tags:
+      - "ext-*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to create (e.g. ext-1.1.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve tag name
+        id: vars
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tag=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Zip just the contents of extension/ (not the whole repo), so
+      # extracting it gives a folder ready for "Load unpacked" as-is.
+      - name: Zip Chrome/Edge build
+        run: |
+          cd extension
+          zip -r ../browser-v2ray-runner-chrome-edge.zip . -x '*.DS_Store'
+          cd ..
+
+      - name: Zip Firefox build
+        run: |
+          cd extension-firefox
+          zip -r ../browser-v2ray-runner-firefox.zip . -x '*.DS_Store'
+          cd ..
+
+      - name: Create release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.vars.outputs.tag }}
+          name: ${{ steps.vars.outputs.tag }}
+          files: |
+            browser-v2ray-runner-chrome-edge.zip
+            browser-v2ray-runner-firefox.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
