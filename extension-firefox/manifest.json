@@ -37,8 +37,11 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "v2ray-ext-runner@example.invalid",
-      "strict_min_version": "115.0"
+      "id": "browser-v2ray-runner@hamedcode.github.io",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   }
 }

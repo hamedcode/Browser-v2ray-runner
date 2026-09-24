@@ -1,0 +1,20 @@
+Browser v2ray Runner
+Copyright 2026 Hamed (hamedcode)
+Source: https://github.com/hamedcode/Browser-v2ray-runner
+
+This product includes software developed by Hamed (hamedcode).
+If you redistribute this project or a derivative work, you must keep this
+NOTICE file (or an equivalent attribution notice in your documentation or
+in the user interface) and state clearly that the original work comes from
+the source URL above, as required by section 4 of the Apache License 2.0.
+Files you modify must carry a prominent notice that you changed them.
+
+Third-party components
+----------------------
+- webextension-polyfill (extension/common/browser-polyfill.js and
+  extension-firefox/common/browser-polyfill.js)
+  Copyright Mozilla. Licensed under the Mozilla Public License 2.0.
+  https://github.com/mozilla/webextension-polyfill
+- sing-box (proxy core) is NOT included in this repository. The installer
+  downloads it at runtime from https://github.com/SagerNet/sing-box under
+  its own license.

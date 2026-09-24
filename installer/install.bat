@@ -211,7 +211,7 @@ try {
   "path": "$hostExePath",
   "type": "stdio",
   "allowed_extensions": [
-    "v2ray-ext-runner@example.invalid"
+    "browser-v2ray-runner@hamedcode.github.io"
   ]
 }
 "@

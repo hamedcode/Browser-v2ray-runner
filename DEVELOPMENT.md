@@ -96,3 +96,8 @@ Chrome Web Store برای انتشار هزینه‌ی یک‌بار ۵ دلار
 - انتشار رسمی تو Chrome Web Store / addons.mozilla.org نیازمند بازبینی جداگانه‌ست؛ استورها نسبت به اکستنشن‌هایی که کاربر رو به نصب یه فایل اجرایی خارجی هدایت می‌کنن حساسن.
 - فایرفاکس بدون امضا فقط به‌صورت موقت (Temporary Add-on) بارگذاری می‌شه.
 - در نسخه‌ی فعلی فقط یک کانفیگ هم‌زمان می‌تونه فعال باشه (سوییچ بین کانفیگ‌ها = قطع و اتصال دوباره).
+
+## Publishing to addons.mozilla.org
+
+See [AMO-SUBMISSION.md](AMO-SUBMISSION.md) for the listing text and reviewer notes.
+The Firefox add-on ID is `browser-v2ray-runner@hamedcode.github.io` and can never change after the first AMO submission. It must be identical in `extension-firefox/manifest.json`, `extension/manifest.firefox.json` and `allowed_extensions` in `installer/install.bat`, otherwise native messaging breaks in Firefox. Bump `version` in both Firefox manifests for every new AMO upload.
